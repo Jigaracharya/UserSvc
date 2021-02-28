@@ -2,9 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>0de41832-7b17-4707-be2d-761caa86da60</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-    <DockerfileContext>.</DockerfileContext>
+    <UserSecretsId>0de41832-7b17-4707-be2d-761caa86da60</UserSecretsId>   
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +10,28 @@
     <Content Remove="UserSvc.UnitTest\**" />
     <EmbeddedResource Remove="UserSvc.UnitTest\**" />
     <None Remove="UserSvc.UnitTest\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Deploy\Deployment-UserSvc.yaml" />
+    <None Remove="Deploy\POD-nginx.yaml" />
+    <None Remove="Deploy\POD-UserSvc.yaml" />
+    <None Remove="Deploy\Service-UserSvc.yaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Deploy\Deployment-UserSvc.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Deploy\POD-nginx.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Deploy\POD-UserSvc.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Deploy\Service-UserSvc.yaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

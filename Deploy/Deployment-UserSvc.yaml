@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usersvc-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: usersvc-pod
+  template:
+    metadata:
+      labels:
+        app: usersvc-pod        
+    spec:
+      containers:
+        - name: usersvc-container
+          image: jigaracharya/usersvc:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

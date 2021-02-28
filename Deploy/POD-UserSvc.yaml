@@ -7,4 +7,4 @@ spec:
   - image: jigaracharya/usersvc:latest
     name: usersvc
     ports:
-    - containerPort: 80 
+    - containerPort: 7001 

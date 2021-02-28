@@ -16,7 +16,11 @@ namespace UserSvc.Controllers
         [HttpGet]       
         public async Task<IActionResult> GetUsers()
         {
-            var users = new List<UserModel>() { new UserModel() { FullName = "Jigar Acharya", Password = "Jigar", UserName ="jigaracharya" } };
+            var users = new List<UserModel>() 
+            { 
+                new UserModel() { FullName = "Jigar Acharya", Password = "Jigar", UserName ="jigaracharya" },
+                new UserModel() { FullName = "Khush Acharya", Password = "Khush", UserName ="khushacharya" }
+            };
             return Ok(await Task.FromResult(users));
         }
     }
