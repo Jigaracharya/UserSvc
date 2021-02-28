@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: usersvc
+spec:
+  containers:
+  - image: jigaracharya/usersvc:latest
+    name: usersvc
+    ports:
+    - containerPort: 8080
+      name: http
+      protocol: TCP
