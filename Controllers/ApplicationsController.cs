@@ -6,11 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace UserSvc.Controllers
 {
-    public class ApplicationsController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ApplicationsController : ControllerBase
     {
-        public IActionResult Index()
+        private static readonly string[] Summaries = new[]
+       {
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
+
+        [HttpGet]
+        public IEnumerable<WeatherForecast> Get()
         {
-            return View();
+            var rng = new Random();
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            })
+            .ToArray();
         }
     }
 }
